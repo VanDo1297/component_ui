@@ -8,10 +8,14 @@ export default function Grid(props) {
     itemClassName,
     itemWrapper,
     data,
+    columnCount,
+    columnGap,
   } = props;
 
   const styles = {
     girdlayout: {
+      columnGap: columnGap || "10px",
+      columnCount: columnCount || 3,
       gridTemplateRows: gridTemplateRows || "auto",
       gridTemplateColumns: gridTemplateColumns || "auto",
       display: "grid",

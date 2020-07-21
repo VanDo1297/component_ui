@@ -11,7 +11,7 @@ export default function App() {
     return (
       <div>
         <img
-          style={{ width: "100%", height: "100px" }}
+          style={{ width: "100%", height: "100px", objectFit: "cover" }}
           alt=""
           src={
             item.img ||
@@ -39,10 +39,12 @@ export default function App() {
           width="50%"
         ></Container>
         <Grid
+          columnGap="20px"
+          columnCount={2}
           itemWrapper={(item) => renderItemGrid(item)}
           className=""
           itemClassName=""
-          gridTemplateColumns="1fr 1fr 1fr 1fr"
+          gridTemplateColumns="repeat(auto-fill, minmax(250px, 1fr))"
           gridTemplateRows="1fr 1fr 1fr"
           data={[
             {
