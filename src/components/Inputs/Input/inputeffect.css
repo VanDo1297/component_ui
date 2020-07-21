@@ -1,0 +1,58 @@
+.form {
+  width: 50%;
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  background: transparent;
+}
+.form input {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  color: #001;
+  border: none;
+  outline: none;
+}
+.form input:focus + .label-name-input .content-label-name {
+  transform: translateY(-150%);
+  color: red;
+  font-size: 14px;
+}
+.form input:focus + .label-name-input::after {
+  transform: translateX(0%);
+}
+.form input:valid + .label-name-input .content-label-name {
+  transform: translateY(-150%);
+  color: red;
+  font-size: 14px;
+}
+.form input:valid + .label-name-input::after {
+  transform: translateX(0%);
+}
+.form label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+.form label::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 3px solid red;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+.content-label-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,71 @@
+.session-nermorphism-button-light {
+  background: #ececec;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.session-nermorphism-button-light ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 20px;
+  width: 240px;
+  background: #ebf5fc;
+  background: linear-gradient(0deg, #fff, #fcfcfc);
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.session-nermorphism-button-light ul li {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  margin: 15px;
+}
+.session-nermorphism-button-light ul li label {
+  position: relative;
+}
+.session-nermorphism-button-light ul li label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.session-nermorphism-button-light
+  ul
+  li
+  label
+  input[type="checkbox"]:checked
+  ~ .icon-box {
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.session-nermorphism-button-light
+  ul
+  li
+  label
+  input[type="checkbox"]:checked
+  ~ .icon-box
+  svg {
+  transform: scale(0.95);
+}
+.session-nermorphism-button-light ul li label .icon-box {
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.1);
+  width: 60px;
+  height: 60px;
+  background: #ebf5fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.session-nermorphism-button-light ul li label .icon-box svg {
+  font-size: 30px;
+  color: #6a9bd8;
+  transition: 0.5s;
+}
