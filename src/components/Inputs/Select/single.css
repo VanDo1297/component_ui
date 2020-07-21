@@ -1,0 +1,33 @@
+.selected {
+  position: relative;
+  width: 300px;
+}
+.selected .selected-label {
+  width: 100%;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.selected .selected-label:hover,
+.selected .selected-label label:hover {
+  cursor: pointer;
+}
+.selected .selected-label:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.selected .selected-list {
+  width: 100%;
+  border: 1px solid #000000;
+  border-top: unset;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.selected .selected-list .selected-item {
+  padding: 10px;
+}
+.selected .selected-list .selected-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

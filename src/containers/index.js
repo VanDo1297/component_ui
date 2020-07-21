@@ -4,6 +4,7 @@ import Input from "../components/Inputs/Input";
 import Button from "../components/Inputs/Buttons";
 import CheckBox from "../components/Inputs/Checkbox";
 import Radio from "../components/Inputs/Radio";
+import Select from "../components/Inputs/Select";
 import "./index.css";
 
 import { menus, children } from "../menu";
@@ -74,6 +75,8 @@ export default function App(props) {
         return <CheckBox />;
       case "/radio":
         return <Radio />;
+      case "/select":
+        return <Select />;
       case "/grid":
         return (
           <Grid
