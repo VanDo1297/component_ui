@@ -1,60 +1,98 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
-
-import Inputs from "../components/Inputs";
+import Input from "../components/Inputs/Input";
+import Button from "../components/Inputs/Buttons";
+import CheckBox from "../components/Inputs/Checkbox";
 import "./index.css";
-export default function App() {
-  const renderItemGrid = (item) => {
+
+import { menus, children } from "../menu";
+import { mockdata } from "../mockdata";
+
+export default function App(props) {
+  useEffect(() => {
+    if (props.history.location.pathname) {
+      setPath(props.history.location.pathname);
+    }
+  }, [props.history.location.pathname]);
+
+  const [itemActive, setItemActive] = useState(0);
+  const [path, setPath] = useState("/");
+
+  const renderMenulist = (menus) => {
+    return menus.map((menuItem, index) => {
+      return (
+        <li
+          onClick={() => {
+            if (itemActive === menuItem.id) {
+              setItemActive(0);
+            } else {
+              setItemActive(menuItem.id);
+            }
+            if (children[index].length === 0) {
+              props.history.push(menuItem.name);
+            }
+          }}
+        >
+          <h5>{menuItem.name}</h5>
+          <div
+            style={{
+              transition: "display 5s ease-out",
+              display: menuItem.id === itemActive ? "flex" : "none",
+            }}
+            className="flex-column"
+          >
+            {children[index].length > 0 &&
+              children[index].map((item) => (
+                <a className="text-capitalize" href={item}>
+                  {item}
+                </a>
+              ))}
+          </div>
+        </li>
+      );
+    });
+  };
+  const renderSideEffect = (menus) => {
     return (
       <div>
-        <img
-          style={{ width: "100%", height: "100px", objectFit: "cover" }}
-          alt=""
-          src={
-            item.img ||
-            "https://znews-photo.zadn.vn/w660/Uploaded/kbd_bcvi/2019_11_23/5d828d976f24eb1a752053b5_thumb.jpg"
-          }
-        ></img>
-        <p>Display grid</p>
-        <p>Name: {item.name || "Sodlado"}</p>
+        <p>Menu List</p>
+        <ul>{renderMenulist(menus)}</ul>
       </div>
     );
   };
+
+  const renderContent = () => {
+    switch (path) {
+      case "/":
+        return "";
+      case "/button":
+        return <Button />;
+      case "/textfield":
+        return <Input />;
+      case "/checkbox":
+        return <CheckBox />;
+      case "/grid":
+        return (
+          <Grid
+            columnGap="20px"
+            columnCount={2}
+            // itemWrapper={(item) => renderItemGrid(item)}
+            className="w-50"
+            itemClassName=""
+            gridTemplateColumns="repeat(auto-fill, minmax(250px, 1fr))"
+            gridTemplateRows="1fr 1fr 1fr"
+            data={mockdata}
+          />
+        );
+      default:
+        return "";
+    }
+  };
+
   return (
-    <div className="m-2">
-      <Grid
-        columnGap="20px"
-        columnCount={2}
-        itemWrapper={(item) => renderItemGrid(item)}
-        className=""
-        itemClassName=""
-        gridTemplateColumns="repeat(auto-fill, minmax(250px, 1fr))"
-        gridTemplateRows="1fr 1fr 1fr"
-        data={[
-          {
-            name: "Test1",
-            img:
-              "https://sohanews.sohacdn.com/thumb_w/660/2019/4/16/photo-7-15554046424151085127637-crop-15554051612471476202748.jpg",
-          },
-          2,
-          3,
-          4,
-          {
-            name: "Test5",
-            img:
-              "https://sohanews.sohacdn.com/thumb_w/660/2019/4/16/photo-7-15554046424151085127637-crop-15554051612471476202748.jpg",
-          },
-          6,
-          7,
-          {
-            name: "Test8",
-            img:
-              "https://sohanews.sohacdn.com/thumb_w/660/2019/4/16/photo-7-15554046424151085127637-crop-15554051612471476202748.jpg",
-          },
-          9,
-        ]}
-      />
-      <Inputs />
+    <div className="m-2 d-flex flex-row">
+      <div className="side-effect">{renderSideEffect(menus)}</div>
+      <div className="d-flex flex-column w-100">{renderContent()}</div>
     </div>
   );
 }

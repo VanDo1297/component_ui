@@ -8,8 +8,23 @@ export default function ButtonComponent(props) {
   const renderNeumorphismButtonLight = () => {
     return (
       <section class="session-nermorphism-button-light">
-        <p style={{ fontSize: "20px" }}>Neumorphism Button Light</p>
         <ul>
+          <li>
+            <label>
+              <input type="checkbox" name="" />
+              <div class="icon-box">
+                <FontAwesomeIcon icon={faCoffee} />
+              </div>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="" />
+              <div class="icon-box">
+                <FontAwesomeIcon icon={faCoffee} />
+              </div>
+            </label>
+          </li>
           <li>
             <label>
               <input type="checkbox" name="" />
@@ -35,6 +50,30 @@ export default function ButtonComponent(props) {
               </div>
             </label>
           </li>
+          <li>
+            <label>
+              <input type="checkbox" name="" />
+              <div class="icon-box">
+                <FontAwesomeIcon icon={faCoffee} />
+              </div>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="" />
+              <div class="icon-box">
+                <FontAwesomeIcon icon={faCoffee} />
+              </div>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="" />
+              <div class="icon-box">
+                <FontAwesomeIcon icon={faCoffee} />
+              </div>
+            </label>
+          </li>
         </ul>
       </section>
     );
@@ -43,8 +82,14 @@ export default function ButtonComponent(props) {
   return (
     <div>
       <h3>Button</h3>
-      {renderNeumorphismButtonLight()}
-      {renderNeumorphismButtonDark()}
+      <div className="p-5">
+        <p style={{ fontSize: "20px" }}>Neumorphism Button Light</p>
+        {renderNeumorphismButtonLight()}
+      </div>
+      <div className="p-5">
+        <p style={{ fontSize: "20px" }}>Neumorphism Button Dark</p>
+        {renderNeumorphismButtonDark()}
+      </div>
     </div>
   );
 }

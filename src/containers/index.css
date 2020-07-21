@@ -1,5 +1,16 @@
-.box-className {
-  border-radius: 10px;
-  border: 1px solid #333;
-  padding: 20px;
+.side-effect {
+  width: 300px;
+  transform: translate(0%, 0%);
+}
+.side-effect ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+.side-effect ul li {
+  text-transform: capitalize;
+  margin: 20px 0px;
+  z-index: 9;
+  overflow: hidden;
+  cursor: pointer;
 }

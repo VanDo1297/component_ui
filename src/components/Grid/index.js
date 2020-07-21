@@ -25,13 +25,32 @@ export default function Grid(props) {
     wrapper: "box-component",
   };
 
+  const renderItemGrid = (item) => {
+    return (
+      <div>
+        <img
+          style={{ width: "100%", height: "100px", objectFit: "cover" }}
+          alt=""
+          src={
+            item.img ||
+            "https://znews-photo.zadn.vn/w660/Uploaded/kbd_bcvi/2019_11_23/5d828d976f24eb1a752053b5_thumb.jpg"
+          }
+        ></img>
+        <p>Display grid</p>
+        <p>Name: {item.name || "Sodlado"}</p>
+      </div>
+    );
+  };
+
   const renderData = (datas) => {
     if (Array.isArray(datas)) {
       if (datas.length > 0) {
         return (
           <>
             {datas.map((item) => {
-              return <>{itemWrapper ? itemWrapper(item) : <p>item</p>}</>;
+              return (
+                <>{itemWrapper ? itemWrapper(item) : renderItemGrid(item)}</>
+              );
             })}
           </>
         );

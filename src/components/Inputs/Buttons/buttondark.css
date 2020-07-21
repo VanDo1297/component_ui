@@ -1,7 +1,8 @@
 /*  BUTTON DARK */
 .session-nermorphism-button {
+  padding: 20px 0px;
   background: #ececec;
-  height: 200px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

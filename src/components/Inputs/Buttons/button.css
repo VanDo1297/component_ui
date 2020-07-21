@@ -1,6 +1,7 @@
 .session-nermorphism-button-light {
+  padding-top: 10px;
   background: #ececec;
-  height: 200px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
