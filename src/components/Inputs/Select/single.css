@@ -6,7 +6,6 @@
   width: 100%;
   border: 1px solid #333;
   padding: 10px;
-  border-radius: 5px;
 }
 
 .selected .selected-label:hover,
@@ -21,13 +20,33 @@
   width: 100%;
   border: 1px solid #000000;
   border-top: unset;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 .selected .selected-list .selected-item {
-  padding: 10px;
+  /* padding: 10px; */
+  min-height: 35px;
+}
+.selected .selected-list option {
+  /* padding: 10px; */
+  height: 35px;
 }
 .selected .selected-list .selected-item:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.selected .selected-label input {
+  border: unset;
+  /* height: 100%; */
+  height: 50px;
+  padding-left: 10px;
+}
+.selected .selected-label input:focus {
+  outline: unset;
+}
+
+.selected .selected-label input:hover ~ .icon {
+  background-color: #ffffff;
+}
+.selected .selected-label .icon:hover {
+  background-color: #ffffff;
 }

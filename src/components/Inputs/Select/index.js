@@ -136,6 +136,9 @@ class MultipleSelected extends React.Component {
   }
 }
 class MultipleSelectedWithSearch extends React.Component {
+  // Multi Select Item : DONE
+  // Search : DONE
+  //
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
@@ -145,11 +148,23 @@ class MultipleSelectedWithSearch extends React.Component {
       result: [],
       value: "",
       data: ["Ha Noi", "Ho Chi Minh", "Phu Yen"],
+      array: [],
     };
   }
 
   handleChange = (e) => {
-    this.setState({ value: e.target.value });
+    let array = [];
+    this.state.data.forEach((item) => {
+      console.log(item.toLowerCase().indexOf(e.target.value.toLowerCase()));
+      if (item.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        array.push(item);
+      }
+    });
+    this.setState({
+      array: array,
+      isOpen: true,
+      value: e.target.value,
+    });
   };
 
   handleClick = (e) => {
@@ -158,6 +173,7 @@ class MultipleSelectedWithSearch extends React.Component {
     }
     this.setState({
       isOpen: false,
+      seatchText: "",
     });
   };
 
@@ -168,10 +184,12 @@ class MultipleSelectedWithSearch extends React.Component {
     };
   }
 
-  handleSelect = (item) => {
+  handleSelect = (item, index) => {
+    this.setState({
+      value: "",
+    });
     if (this.state.result.indexOf(item) > -1) {
       this.state.result.splice(this.state.result.indexOf(item), 1);
-
       this.setState({
         result: [...this.state.result],
         value: this.state.result.join(", "),
@@ -184,19 +202,38 @@ class MultipleSelectedWithSearch extends React.Component {
     }
   };
   renderItemSelected = (data) => {
-    return data.map((item) => (
-      <div
-        onClick={() => this.handleSelect(item)}
-        className="d-flex flex-row align-items-center selected-item"
-      >
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={this.state.result.indexOf(item) > -1}
-        />
-        <p style={{ margin: "unset" }}>{item}</p>
-      </div>
-    ));
+    return data.length > 0 ? (
+      data.map((item, index) => (
+        <div
+          style={{ position: "relative" }}
+          onClick={() => this.handleSelect(item, index)}
+          className="d-flex flex-row align-items-center selected-item h-100 justify-content-center"
+        >
+          <input
+            style={{ minHeight: "50px" }}
+            id={`selected-item-${index}`}
+            type="checkbox"
+            className="ml-2 w-100 "
+            checked={this.state.result.indexOf(item) > -1}
+          />
+          <p
+            style={{
+              margin: "unset",
+              position: "absolute",
+              left: "60px",
+              height: "100%",
+              top: 5,
+            }}
+          >
+            {item}
+          </p>
+        </div>
+      ))
+    ) : (
+      <p style={{ minHeight: "70px" }} className="mb-0 text-center">
+        No results
+      </p>
+    );
   };
   render() {
     var { isOpen, placeholder } = this.state;
@@ -209,7 +246,7 @@ class MultipleSelectedWithSearch extends React.Component {
               isOpen: !isOpen,
             })
           }
-          className="selected-label d-flex flex-row"
+          className="selected-label p-0 d-flex flex-row h-100"
         >
           <input
             className="w-100 h-100"
@@ -217,7 +254,10 @@ class MultipleSelectedWithSearch extends React.Component {
             placeholder={placeholder}
             onChange={this.handleChange}
           />
-          <div className="text-right">
+          <div
+            style={{ paddingRight: "10px" }}
+            className="text-right d-flex align-items-center icon"
+          >
             <FontAwesomeIcon icon={faCaretDown} />
           </div>
         </div>
