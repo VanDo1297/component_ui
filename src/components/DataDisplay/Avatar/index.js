@@ -62,8 +62,11 @@ export default function Avatar(props) {
     return (
       <div class="profile-container">
         <div class="wrapper">
-          <a href="#">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3MW95Om1Bq2XdApdizYgIG0GM6H5gaT8aiw&usqp=CAU" />
+          <a href="/">
+            <img
+              alt=""
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3MW95Om1Bq2XdApdizYgIG0GM6H5gaT8aiw&usqp=CAU"
+            />
           </a>
           <div class="title">SoldaDo</div>
           <div class="place">Hồ Chí Minh</div>
@@ -84,17 +87,17 @@ export default function Avatar(props) {
         </div>
         <div class="icons">
           <li>
-            <a href="#">
+            <a href="/">
               <span class="fab fa-facebook-f"></span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/">
               <span class="fab fa-facebook-f"></span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/">
               <span class="fab fa-facebook-f"></span>
             </a>
           </li>

@@ -47,10 +47,7 @@ export default function ProgessComponent(props) {
   return (
     <div>
       <p>
-        Copy all loading in{" "}
-        <a href="https://loading.io/css/" target="_blank">
-          here
-        </a>
+        Copy all loading in <a href="https://loading.io/css/">here</a>
       </p>
       {renderDots()}
       {renderLines()}
