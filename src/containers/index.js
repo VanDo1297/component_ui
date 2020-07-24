@@ -7,7 +7,9 @@ import Radio from "../components/Inputs/Radio";
 import Select from "../components/Inputs/Select";
 import Slider from "../components/Inputs/Slider";
 
-import { Avatar } from "../components/DataDisplay";
+import { Avatar, Badge, Table } from "../components/DataDisplay";
+import { Progess, Dialog } from "../components/Feedback";
+
 import "./index.css";
 
 import { menus, children } from "../menu";
@@ -17,7 +19,7 @@ export default function App(props) {
   useEffect(() => {
     if (props.history.location.pathname) {
       setPath(props.history.location.pathname);
-      setItemActive(1);
+      setItemActive(2);
     }
   }, [props.history.location.pathname]);
 
@@ -85,6 +87,14 @@ export default function App(props) {
         return <Slider />;
       case "/avatar":
         return <Avatar />;
+      case "/badge":
+        return <Badge />;
+      case "/table":
+        return <Table />;
+      case "/progess":
+        return <Progess />;
+      case "/dialog":
+        return <Dialog />;
       case "/grid":
         return (
           <Grid

@@ -1,3 +1,4 @@
 import Avatar from "./Avatar";
-
-export { Avatar };
+import Badge from "./Badge";
+import Table from "./Table";
+export { Avatar, Badge, Table };

@@ -34,18 +34,8 @@ export const menus = [
 ];
 
 export const children = [
-  [
-    "avatar",
-    "badge",
-    "chip",
-    "divider",
-    "icons",
-    "list",
-    "table",
-    "tooltip",
-    "typography",
-  ],
-  ["progess", "dialog", "snackbar", "backdrop"],
+  ["avatar", "badge", "table"],
+  ["progess", "dialog", "toast"],
   [],
   ["button", "checkbox", "radio", "select", "slider", "textfield"],
   ["alert", "pagination", "rating"],
