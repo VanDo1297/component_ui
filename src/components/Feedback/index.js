@@ -1,3 +1,4 @@
 import Progess from "./Progess";
 import Dialog from "./Dialog";
-export { Progess, Dialog };
+import Toast from "./Toast";
+export { Progess, Dialog, Toast };

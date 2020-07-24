@@ -8,7 +8,7 @@ import Select from "../components/Inputs/Select";
 import Slider from "../components/Inputs/Slider";
 
 import { Avatar, Badge, Table } from "../components/DataDisplay";
-import { Progess, Dialog } from "../components/Feedback";
+import { Progess, Dialog, Toast } from "../components/Feedback";
 
 import "./index.css";
 
@@ -95,6 +95,8 @@ export default function App(props) {
         return <Progess />;
       case "/dialog":
         return <Dialog />;
+      case "/toast":
+        return <Toast />;
       case "/grid":
         return (
           <Grid
