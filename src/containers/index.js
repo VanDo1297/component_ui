@@ -5,6 +5,7 @@ import Button from "../components/Inputs/Buttons";
 import CheckBox from "../components/Inputs/Checkbox";
 import Radio from "../components/Inputs/Radio";
 import Select from "../components/Inputs/Select";
+import Slider from "../components/Inputs/Slider";
 import "./index.css";
 
 import { menus, children } from "../menu";
@@ -77,6 +78,8 @@ export default function App(props) {
         return <Radio />;
       case "/select":
         return <Select />;
+      case "/slider":
+        return <Slider />;
       case "/grid":
         return (
           <Grid
@@ -96,9 +99,11 @@ export default function App(props) {
   };
 
   return (
-    <div className="m-2 d-flex flex-row">
-      <div className="side-effect">{renderSideEffect(menus)}</div>
-      <div className="d-flex flex-column w-100">{renderContent()}</div>
-    </div>
+    <>
+      <div className="m-2 d-flex flex-row">
+        <div className="side-effect">{renderSideEffect(menus)}</div>
+        <div className="d-flex flex-column w-100">{renderContent()}</div>
+      </div>
+    </>
   );
 }
