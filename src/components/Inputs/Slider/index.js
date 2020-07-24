@@ -84,10 +84,25 @@ export default function HomeContainer() {
     );
   };
 
+  const renderDots = () => {
+    return photos.map((i, index) => {
+      return (
+        <div
+          className={`${
+            index === imgIndex ? "dot-active" : "dot"
+          } m-1 text-white`}
+        />
+      );
+    });
+  };
+
   return (
     <div className="photo-container" onKeyDown={onKeyDown} tabIndex="0">
       <div className="photo d-flex justify-content-center align-items-center">
         {renderListPhoto(imgIndex)}
+        <div className="dots d-flex flex-row align-items-center">
+          {renderDots()}
+        </div>
       </div>
     </div>
   );
