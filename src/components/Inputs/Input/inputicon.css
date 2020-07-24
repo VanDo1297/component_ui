@@ -1,0 +1,23 @@
+.input-icon {
+  width: 530px;
+  position: relative;
+}
+.input-icon input {
+  width: 100%;
+  border: 1px solid red;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.input-icon input:focus {
+  outline: none;
+}
+.input-icon .input-with-icon {
+  position: absolute;
+  right: 10px;
+  top: calc((100% - 20px) / 2);
+  height: 20px;
+}
+.input-icon .input-with-icon:hover {
+  cursor: pointer;
+}

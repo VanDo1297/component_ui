@@ -53,7 +53,6 @@ export const children = [
     "radio",
     "select",
     "slider",
-    "switch",
     "textfield",
     "transferlist",
   ],
