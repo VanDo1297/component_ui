@@ -6,6 +6,8 @@ import CheckBox from "../components/Inputs/Checkbox";
 import Radio from "../components/Inputs/Radio";
 import Select from "../components/Inputs/Select";
 import Slider from "../components/Inputs/Slider";
+
+import { Avatar } from "../components/DataDisplay";
 import "./index.css";
 
 import { menus, children } from "../menu";
@@ -15,10 +17,11 @@ export default function App(props) {
   useEffect(() => {
     if (props.history.location.pathname) {
       setPath(props.history.location.pathname);
+      setItemActive(1);
     }
   }, [props.history.location.pathname]);
 
-  const [itemActive, setItemActive] = useState(4);
+  const [itemActive, setItemActive] = useState(0);
   const [path, setPath] = useState("/");
 
   const renderMenulist = (menus) => {
@@ -80,6 +83,8 @@ export default function App(props) {
         return <Select />;
       case "/slider":
         return <Slider />;
+      case "/avatar":
+        return <Avatar />;
       case "/grid":
         return (
           <Grid

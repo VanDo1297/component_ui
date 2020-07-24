@@ -1,0 +1,116 @@
+.profile-container {
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8e44ad, #ecf0f1);
+  text-align: center;
+  margin-bottom: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.profile-container:hover {
+  height: 470px;
+  width: 350px;
+  border-radius: 5px;
+}
+.profile-container:hover .wrapper img.active {
+  height: 470px;
+  width: 350px;
+  margin: 0px auto;
+  border: none;
+  border-radius: 5px;
+}
+.profile-container:hover .icons li {
+  opacity: 1;
+  margin-left: 7px;
+}
+.profile-container:hover .icons li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.profile-container:hover .icons li:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.profile-container .wrapper img {
+  position: relative;
+  z-index: 20;
+  border-radius: 50%;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #fff;
+  object-fit: cover;
+  margin: 20px auto;
+  transition: all 0.3s ease;
+}
+.profile-container .wrapper .title {
+  color: #fff;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.profile-container .wrapper .place {
+  color: #fff;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.profile-container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .content p {
+  color: #fff;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.profile-container .content .buttons {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .content .buttons .btn {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+}
+.profile-container .content .buttons .btn button {
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: all 0.3s;
+}
+.profile-container .content .buttons .btn:hover {
+  transform: scale(0.95);
+}
+.profile-container .icons {
+  position: relative;
+  margin-top: -435px;
+  list-style: none;
+  margin-left: 10px;
+}
+.profile-container .icons li {
+  height: 40px;
+  width: 40px;
+  opacity: 0;
+  margin-left: -100px;
+  transition: all 0.5s ease;
+}
+.profile-container .icons li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5px;
+  transition: all 0.3s;
+}
+.profile-container .icons li a:hover {
+  transform: scale(0.9);
+}
