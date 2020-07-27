@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./inputeffect.css";
 import "./inputicon.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 export default function InputComponent(props) {
   const [searchText, setSearchText] = useState("");
-
+  const sumbitRef = useRef(null);
   const handleChangeText = (e) => {
-    setSearchText(e.target.value);
+    const value = e.target.value;
+    setSearchText(value);
+
+    if (sumbitRef.current) {
+      clearTimeout(sumbitRef.current);
+    }
+
+    sumbitRef.current = setTimeout(() => {
+      callAPISearch(value);
+    }, 2000);
   };
 
   const handleSearch = () => {
     console.log(searchText);
     // TODO: using searchText call API. example API: https://abc.com?searcch=${searchText}
+  };
+
+  const callAPISearch = (search) => {
+    console.log("a", search);
   };
 
   const handleKeyDown = (e) => {
